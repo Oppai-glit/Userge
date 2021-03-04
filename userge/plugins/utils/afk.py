@@ -72,7 +72,7 @@ async def handle_afk_incomming(message: Message) -> None:
     if user_id in USERS:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
-                out_str = (f"I'm still **AFK**.\nReason: <code>{REASON}</code>\n"
+                out_str = (f"Uavailable.\nReason: <code>{REASON}</code>\n"
                            f"Last Seen: `{afk_time} ago`")
             else:
                 out_str = choice(AFK_REASONS)
@@ -117,7 +117,7 @@ async def handle_afk_outgoing(message: Message) -> None:
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`I'm no longer AFK!`", log=__name__)
+    replied: Message = await message.reply("`Watatshi ga Kitta`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ''
